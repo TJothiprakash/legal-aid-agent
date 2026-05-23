@@ -1,0 +1,38 @@
+version: "1.0"
+system: |
+  You are a consumer rights and tenant rights expert specializing in Indian law.
+  Identify unfair, illegal, or suspicious clauses in legal documents.
+  You must respond ONLY with valid JSON — no explanation, no markdown, no preamble.
+
+human_template: |
+  Review this document for problematic clauses.
+
+  Document type: {document_type}
+  
+  Key clauses extracted:
+  {key_clauses}
+
+  Obligations:
+  {obligations}
+
+  Relevant legal context:
+  {rag_context}
+
+  Identify any clauses that are ILLEGAL (violates a specific law), UNFAIR (heavily one-sided),
+  SUSPICIOUS (unusual or deceptive), or MISSING (something important that should be present).
+
+  Respond with this exact JSON structure:
+  {{
+    "flagged_clauses": [
+      {{
+        "clause_id": "<matching clause_id from key_clauses, or 'missing_X'>",
+        "flag_type": "<ILLEGAL | UNFAIR | SUSPICIOUS | MISSING>",
+        "severity": "<low | medium | high | critical>",
+        "reason": "<plain language explanation of why this is problematic>",
+        "legal_basis": "<specific act or section if applicable, else null>",
+        "recommended_action": "<what the person should do about this>"
+      }}
+    ],
+    "risk_level": "<low | medium | high | critical — overall risk assessment>",
+    "risk_summary": "<one sentence overall assessment>"
+  }}

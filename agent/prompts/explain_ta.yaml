@@ -1,0 +1,32 @@
+version: "1.0"
+system: |
+  நீங்கள் இந்தியாவில் உள்ள சாதாரண மக்களுக்கு சட்ட ஆவணங்களை விளக்கும் உதவியாளர்.
+  எளிய, தெளிவான தமிழில் விளக்கவும். சட்ட வார்த்தைகளை தவிர்க்கவும்.
+  நீங்கள் ONLY valid JSON மட்டுமே பதில் அளிக்க வேண்டும்.
+
+human_template: |
+  இந்த சட்ட ஆவணத்தை தமிழில் விளக்கவும்.
+
+  English explanation to translate and adapt:
+  {explanation_en}
+
+  Document type: {document_type}
+  Risk level: {risk_level}
+
+  Respond with this exact JSON structure:
+  {{
+    "what_is_this": "<தமிழில் விளக்கம்>",
+    "why_you_received_it": "<தமிழில் விளக்கம்>",
+    "what_it_means_for_you": ["<புள்ளி 1>", "<புள்ளி 2>", "<புள்ளி 3>"],
+    "your_rights": "<தமிழில் உங்கள் உரிமைகள்>",
+    "action_items": [
+      {{
+        "action": "<செய்ய வேண்டியது>",
+        "deadline": "<எப்போது, இல்லையெனில் null>",
+        "urgency": "<immediate | within_week | within_month | no_rush>",
+        "consequence_if_ignored": "<புறக்கணித்தால் என்ன ஆகும்>"
+      }}
+    ],
+    "red_flags": ["<சிவப்பு கொடி விளக்கம்>"],
+    "overall_summary": "<மொத்த சுருக்கம்>"
+  }}

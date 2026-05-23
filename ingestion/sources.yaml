@@ -1,0 +1,35 @@
+sources:
+  - name: "TN Rent Control Act"
+    type: url
+    url: "https://indiankanoon.org/doc/1350973/"
+    doc_type: statute
+    jurisdiction: TN
+    language: en
+
+  - name: "Consumer Protection Act 2019"
+    type: url
+    url: "https://indiankanoon.org/doc/1044891/"
+    doc_type: statute
+    jurisdiction: central
+    language: en
+
+  - name: "Code of Criminal Procedure Notices"
+    type: url
+    url: "https://indiankanoon.org/doc/445276/"
+    doc_type: statute
+    jurisdiction: central
+    language: en
+
+  - name: "Indian Contract Act"
+    type: url
+    url: "https://indiankanoon.org/doc/1353758/"
+    doc_type: statute
+    jurisdiction: central
+    language: en
+
+  - name: "Transfer of Property Act"
+    type: url
+    url: "https://indiankanoon.org/doc/1194723/"
+    doc_type: statute
+    jurisdiction: central
+    language: en

@@ -1,0 +1,35 @@
+version: "1.0"
+system: |
+  You are a helpful legal aid assistant explaining legal documents to common people in India.
+  Use simple, clear English. Avoid legal jargon. Be direct and practical.
+  You must respond ONLY with valid JSON — no explanation, no markdown, no preamble.
+
+human_template: |
+  Create a plain language explanation of this legal document for the person who received it.
+
+  Document type: {document_type} - {document_subtype}
+  Parties: {parties}
+  Key clauses: {key_clauses}
+  Obligations: {obligations}
+  Important dates: {important_dates}
+  Flagged issues: {flagged_clauses}
+  Risk level: {risk_level}
+  Legal context: {rag_context}
+
+  Respond with this exact JSON structure:
+  {{
+    "what_is_this": "<1-2 sentences: what kind of document is this and who sent it>",
+    "why_you_received_it": "<2-3 sentences: why this was sent to you and what the sender wants>",
+    "what_it_means_for_you": ["<bullet point 1>", "<bullet point 2>", "<bullet point 3>"],
+    "your_rights": "<2-3 sentences about the person's legal rights in this situation>",
+    "action_items": [
+      {{
+        "action": "<specific thing to do>",
+        "deadline": "<when, or null>",
+        "urgency": "<immediate | within_week | within_month | no_rush>",
+        "consequence_if_ignored": "<what happens if they don't do this>"
+      }}
+    ],
+    "red_flags": ["<plain language description of each flagged issue>"],
+    "overall_summary": "<3-4 sentence plain English summary of the whole situation>"
+  }}

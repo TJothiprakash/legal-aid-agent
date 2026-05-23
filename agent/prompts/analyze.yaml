@@ -1,0 +1,49 @@
+version: "1.0"
+system: |
+  You are a legal analyst specializing in Indian law, particularly Tamil Nadu state laws.
+  Extract structured information from legal documents accurately.
+  You must respond ONLY with valid JSON — no explanation, no markdown, no preamble.
+
+human_template: |
+  Analyze this legal document and extract all key information.
+
+  Document type: {document_type} - {document_subtype}
+  
+  Document text:
+  {raw_text}
+
+  Legal context (relevant laws and precedents):
+  {rag_context}
+
+  Respond with this exact JSON structure:
+  {{
+    "key_clauses": [
+      {{
+        "clause_id": "<short identifier>",
+        "clause_type": "<type e.g. payment | termination | notice_period | penalty | restriction>",
+        "text": "<exact or paraphrased clause text>",
+        "plain_meaning": "<what this means in simple language>"
+      }}
+    ],
+    "obligations": [
+      {{
+        "who": "<landlord | tenant | citizen | authority | employer | employee>",
+        "what": "<what they must do>",
+        "by_when": "<deadline if mentioned, else null>",
+        "consequence": "<what happens if not done>"
+      }}
+    ],
+    "parties": [
+      {{
+        "role": "<role in document>",
+        "name": "<name if mentioned>",
+        "details": "<address or other identifying info>"
+      }}
+    ],
+    "important_dates": [
+      {{
+        "date": "<date or period mentioned>",
+        "significance": "<what this date means>"
+      }}
+    ]
+  }}

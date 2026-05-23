@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: legal-aid-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_BASE_URL
+        sync: false
+      - key: GRAFANA_PROMETHEUS_URL
+        sync: false
+      - key: GRAFANA_PROMETHEUS_USERNAME
+        sync: false
+      - key: GRAFANA_PROMETHEUS_PASSWORD
+        sync: false
+      - key: APP_ENV
+        value: production
+      - key: APP_NAME
+        value: legal-aid
