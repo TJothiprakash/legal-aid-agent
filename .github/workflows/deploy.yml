@@ -12,4 +12,4 @@ jobs:
       - name: Trigger Render deploy
         if: ${{ secrets.RENDER_DEPLOY_HOOK != '' }}
         run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
